@@ -1,7 +1,7 @@
 import json, urllib.request, sys
 
 #To Run
-#Open the terminal for your os
+#Open the terminal
 #Go to file location
 #Type 'python vexap.py competition skew'
 #Hit enter to run
