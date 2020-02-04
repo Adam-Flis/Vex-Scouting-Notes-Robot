@@ -1,5 +1,12 @@
 import json, urllib.request, sys
 
+#To Run
+#Open the terminal for your os
+#Go to file location
+#Type 'python vexap.py competition skew'
+#Hit enter to run
+#To save to file add '>filename.csv' after skew
+
 event = sys.argv[1]
 url="https://api.vexdb.io/v1/get_teams?sku="+event
 response = urllib.request.urlopen(url)
@@ -80,11 +87,3 @@ for teamdata in eventteams["result"]:
          last3ties=avgties
 
    print(team+","+str(count)+","+format(last3rank, '.2f')+","+format(avgrank, '.2f')+","+format(last3wins, '.2f')+","+format(avgwins, '.2f')+","+format(last3losses, '.2f')+","+format(avglosses, '.2f')+","+format(last3ties, '.2f')+","+format(avgties, '.2f')+","+format(last3wp, '.2f')+","+format(avgwp, '.2f')+","+format(last3ap, '.2f')+","+format(avgap, '.2f')+","+format(last3sp, '.2f')+","+format(avgsp, '.2f')+","+str(lastHighScore)+","+str(lastTRSP)+","+format(lastOPR,'.2f')+","+format(lastDPR,'.2f')+","+format(lastCCWM,'.2f'))
-
-
-#To Run
-#Open the terminal for your os
-#Go to file location
-#Type 'python vexap.py competition skew'
-#Hit enter to run
-#To save to file add '>filename.csv' after skew
