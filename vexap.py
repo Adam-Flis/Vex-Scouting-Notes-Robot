@@ -3,7 +3,7 @@ import json, urllib.request, sys
 #To Run
 #Open the terminal
 #Go to file location
-#Type 'python vexap.py competition skew'
+#Type python vexap.py 'competition skew'
 #Hit enter to run
 #To save to file add '>filename.csv' after skew
 
@@ -67,7 +67,8 @@ for teamdata in eventteams["result"]:
    lastDPR = 0
    lastCCWM = 0
 
-
+   #Begins for loop for the amount of teams going to specific competition
+   #Where all the calculations happen
    for result in data["result"]:
       count = count + 1
       totalap = totalap + result["ap"]
@@ -100,7 +101,7 @@ for teamdata in eventteams["result"]:
          last3wins = totalwins / count
          last3losses = totallosses / count
          last3ties = totalties / count
-
+      
    if (count > 0):
       avgap = totalap / count
       avgwp = totalwp / count
@@ -119,7 +120,7 @@ for teamdata in eventteams["result"]:
          last3losses = avglosses
          last3ties = avgties
 
-   #Prints infromation to terminal
+   #Prints infromation
    print(team+","
    +str(count)+","
    
