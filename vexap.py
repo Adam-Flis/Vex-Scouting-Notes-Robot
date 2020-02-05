@@ -20,7 +20,7 @@ for teamdata in eventteams["result"]:
    response = urllib.request.urlopen(url)
    data = json.loads(response.read())
 
-   #Variables vexapfor rank
+   #Variables for rank
    totalrank = 0
    lastrank = 0
    last3rank = 0
