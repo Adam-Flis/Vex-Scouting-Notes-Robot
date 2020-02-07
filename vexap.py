@@ -30,8 +30,6 @@ for teamdata in eventteams["result"]:
    response = urllib.request.urlopen(url)
    data = json.loads(response.read())
 
-   #if (event == data["sku"]):
-
    #Variables for rank
    totalrank = 0
    lastrank = 0
