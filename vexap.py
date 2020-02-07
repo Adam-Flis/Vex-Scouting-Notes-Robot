@@ -3,22 +3,34 @@ import json, urllib.request, sys
 #To Run
 #Open the terminal
 #Go to file location
-#Type python vexap.py 'competition skew'
+#Type python vexap.py 'competition SKU'
 #Hit enter to run
-#To save to file add '>filename.csv' after skew
+#To save to file add '>filename.csv' after SKU
 
 event = sys.argv[1]
+
+#Gets specific event
+url="https://api.vexdb.io/v1/get_events?sku="+event
+response = urllib.request.urlopen(url)
+date = json.loads(response.read())   
+
+#Gets teams going to event
 url="https://api.vexdb.io/v1/get_teams?sku="+event
 response = urllib.request.urlopen(url)
 eventteams = json.loads(response.read())
 
+#Sets up the table to print information to
 print("Teams, # of Comps, Rank: Last, Rank: Avg of Last 3, Rank: Avg, Wins: Last, Wins: Avg of Last 3, Wins: Avg, Losses: Last, Losses: Avg of Last 3, Losses: Avg, Ties: Last, Ties: Avg of Last 3, Ties: Avg, WP: Last, WP: Avg of Last 3, WP: Avg, AP: Last, AP: Avg of Last 3, AP: Avg, SP: Last, SP: Avg of Last 3, SP: Avg, Highest Score: Last, TRSPs: Last, OPR: Last, DPR: Last, CCWM: Last")
+
+#Separates the teams going to event
 for teamdata in eventteams["result"]:
    team = teamdata["number"] 
 
    url="https://api.vexdb.io/v1/get_rankings?season=current&team="+team
    response = urllib.request.urlopen(url)
    data = json.loads(response.read())
+
+   #if (event == data["sku"]):
 
    #Variables for rank
    totalrank = 0
@@ -67,7 +79,7 @@ for teamdata in eventteams["result"]:
    lastDPR = 0
    lastCCWM = 0
 
-   #Begins for loop for the amount of teams going to specific competition
+   #Begins for loop for the stats of teams going to competition
    #Where all the calculations happen
    for result in data["result"]:
       count = count + 1
